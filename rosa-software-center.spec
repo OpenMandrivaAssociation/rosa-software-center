@@ -62,7 +62,7 @@ cmake .. \
 
 echo "Building..."
 
-make  install
+make VERBOSE=1 install
 
 chmod 0755 %{buildroot}/usr/%{_lib}/*.so*
 
