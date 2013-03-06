@@ -1,6 +1,6 @@
 # TODO: help
 # Constants ###################################################################
-%define git_version git20130304
+%define git_version git20130306
 
 # TODO: There are no special macros for Qt5 for now, so, the paths are hardcoded for now
 %define qt5_path /usr/lib/qt5
@@ -62,7 +62,7 @@ cmake .. \
 
 echo "Building..."
 
-make VERBOSE=1 install
+make install
 
 chmod 0755 %{buildroot}/usr/%{_lib}/*.so*
 
