@@ -1,6 +1,6 @@
 # TODO: help
 # Constants ###################################################################
-%define git_version git20130321
+%define git_version git20130322
 
 # TODO: There are no special macros for Qt5 for now, so, the paths are hardcoded for now
 %define qt5_path /usr/lib/qt5
@@ -9,7 +9,7 @@
 # Package #####################################################################
 Name: rosa-software-center
 Version: 0.0.0
-Release: 0.%{git_version}.2
+Release: 0.%{git_version}.1
 Summary: Software Center 
 License: GPLv3+
 Vendor: ROSA
