@@ -26,6 +26,7 @@ Source100: rosa-software-center.rpmlintrc
 BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: qt5-devel
+BuildRequires: intltool
 
 Requires: %{_lib}qt5gui5-x11
 Requires: qt5-desktop-components
