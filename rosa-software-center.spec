@@ -44,7 +44,7 @@ Software Center
 # Build #######################################################################
 %build
 # there is no 'cmake_qt5' macro => use standard macro 'cmake'
-%cmake -DCMAKE_PREFIX_PATH=%{qt5_path} -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
+%cmake -DCMAKE_PREFIX_PATH=%{qt5_path} -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DAPP_GIT_VERSION="%{git_revision}"
 
 # Donot use macros makeinstall_std because it generates unstripped binaries
 make DESTDIR="%{buildroot}" install/strip
