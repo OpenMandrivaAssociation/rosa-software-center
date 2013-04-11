@@ -1,6 +1,6 @@
 # Please update git_revision and increment release number (first number separated by point)
 # Constants ###################################################################
-%define git_revision 19029a8
+%define git_revision cec84eb
 
 # TODO: There are no special macros for Qt5 for now, so, the paths are hardcoded for now
 %define qt5_path /usr/lib/qt5
@@ -27,9 +27,11 @@ BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: qt5-devel
 BuildRequires: intltool
+BuildRequires: polkit-qt5-1-devel
 
 Requires: %{_lib}qt5gui5-x11
 Requires: qt5-desktop-components
+Requires: %{_lib}polkit-qt5-core-1_1
 
 
 %description
@@ -44,7 +46,7 @@ Software Center
 # Build #######################################################################
 %build
 # there is no 'cmake_qt5' macro => use standard macro 'cmake'
-%cmake -DCMAKE_PREFIX_PATH=%{qt5_path} -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DAPP_GIT_VERSION="%{git_revision}"
+%cmake -DCMAKE_PREFIX_PATH=%{qt5_path} -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DBUILD_PKHELPER=ON -DAPP_GIT_VERSION="%{git_revision}"
 
 # Donot use macros makeinstall_std because it generates unstripped binaries
 make DESTDIR="%{buildroot}" install/strip
