@@ -1,6 +1,6 @@
 # Please update git_revision and increment release number (first number separated by point)
 # Constants ###################################################################
-%define git_revision cec84eb
+%define git_revision cfa4bbd
 
 # TODO: There are no special macros for Qt5 for now, so, the paths are hardcoded for now
 %define qt5_path /usr/lib/qt5
@@ -9,7 +9,7 @@
 # Package #####################################################################
 Name: rosa-software-center
 Version: 0.0.0
-Release: 1.%{git_revision}
+Release: 2.%{git_revision}
 Summary: Software Center 
 License: GPLv3+
 Vendor: ROSA
@@ -18,9 +18,7 @@ Group: System/Configuration/Packaging
 URL: http://www.rosalab.ru
 
 # Sources #####################################################################
-Source0: rosa-software-center-%{version}-%{git_revision}.tar.gz
-
-Source100: rosa-software-center.rpmlintrc
+Source0: %{name}-%{version}-%{git_revision}.tar.gz
 
 # Requires ####################################################################
 BuildRequires: cmake
@@ -46,7 +44,7 @@ Software Center
 # Build #######################################################################
 %build
 # there is no 'cmake_qt5' macro => use standard macro 'cmake'
-%cmake -DCMAKE_PREFIX_PATH=%{qt5_path} -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DBUILD_PKHELPER=ON -DAPP_GIT_VERSION="%{git_revision}"
+%cmake -DCMAKE_PREFIX_PATH=%{qt5_path} -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DAPP_GIT_VERSION="%{git_revision}"
 
 # Donot use macros makeinstall_std because it generates unstripped binaries
 make DESTDIR="%{buildroot}" install/strip
