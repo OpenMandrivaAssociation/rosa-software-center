@@ -51,7 +51,7 @@ Software Center
     -DAPP_GIT_VERSION="%{git_revision}"
 
 # Donot use macros makeinstall_std because it generates unstripped binaries
-make DESTDIR="%{buildroot}" install/strip
+make -j4 DESTDIR="%{buildroot}" install/strip
 
 # Files ######################################################################
 %files -f build/install_manifest.txt
