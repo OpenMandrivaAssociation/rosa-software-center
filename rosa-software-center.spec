@@ -24,6 +24,7 @@ Source0: %{name}-%{version}-%{git_revision}.tar.gz
 BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: qt5-devel
+BuildRequires: qt5-linguist-tools
 BuildRequires: intltool
 BuildRequires: polkit-qt5-1-devel
 
