@@ -9,7 +9,7 @@
 # Package #####################################################################
 Name: rosa-software-center
 Version: 0.0.0
-Release: 9.%{git_revision}
+Release: 10.%{git_revision}
 Summary: Software Center 
 License: GPLv3+
 Vendor: ROSA
