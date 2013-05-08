@@ -1,6 +1,6 @@
 # Please update git_revision and increment release number (first number separated by point)
 # Constants ###################################################################
-%define git_revision 836a539
+%define git_revision 7f900a4
 
 # TODO: There are no special macros for Qt5 for now, so, the paths are hardcoded for now
 %define qt5_path /usr/lib/qt5
