@@ -1,6 +1,6 @@
 # Please update git_revision and increment release number (first number separated by point)
 # Constants ###################################################################
-%define git_revision 128fa55
+%define git_revision c3acf61
 
 # TODO: There are no special macros for Qt5 for now, so, the paths are hardcoded for now
 %define qt5_path /usr/lib/qt5
@@ -9,7 +9,7 @@
 # Package #####################################################################
 Name: rosa-software-center
 Version: 0.0.0
-Release: 12.%{git_revision}
+Release: 13.%{git_revision}
 Summary: Software Center 
 License: GPLv3+
 Vendor: ROSA
