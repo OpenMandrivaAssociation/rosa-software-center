@@ -41,6 +41,7 @@ Summary: Core library for Software Center and RPM/URPM support libraries
 Group: System/Libraries
 
 BuildRequires: polkit-qt5-1-devel
+BuildRequires: rpm-devel
 
 %description
 Core library for Software Center and RPM/URPM support libraries
