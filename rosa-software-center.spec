@@ -42,6 +42,7 @@ Group: System/Libraries
 
 BuildRequires: polkit-qt5-1-devel
 BuildRequires: rpm-devel
+BuildRequires: curl-devel
 
 %description
 Core library for Software Center and RPM/URPM support libraries
