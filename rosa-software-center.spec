@@ -33,6 +33,8 @@ BuildRequires: polkit-qt5-1-devel
 BuildRequires: rpm-devel
 BuildRequires: curl-devel
 
+Requires: %{_lib}qt5gui5-x11
+
 Obsoletes: %{name}-updater
 Obsoletes: %{name}-notifier
 Obsoletes: %{name}-core
