@@ -78,6 +78,9 @@ cd %{_builddir}/%{name}-%{version}
 
 %makeinstall_std -C build
 
+# Make autostart of notifier by default => add update skel 
+mkdir -p %{buildroot}%{_sysconfdir}/skel/.config/autostart
+cp %{buildroot}%{_datadir}/%{name}/desktop_integration/%{name}-notifier.desktop %{buildroot}%{_sysconfdir}/skel/.config/autostart
 
 
 # Files ######################################################################
@@ -103,4 +106,4 @@ cd %{_builddir}/%{name}-%{version}
 %{_datadir}/%{name}/notifier/*
 %{_datadir}/%{name}/translations/notifier_*.qm
 %{_datadir}/%{name}/desktop_integration/*
-
+%{_sysconfdir}/skel/.config/autostart/%{name}-notifier.desktop
