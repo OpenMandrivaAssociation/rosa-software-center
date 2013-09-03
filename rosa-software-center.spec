@@ -6,7 +6,7 @@
 %define git_commit_date 20130903
 
 # Required version of Qt5
-%define qt_version 5.1.0
+%define qt_version 5.1.1
 
 
 # Main Package ################################################################
