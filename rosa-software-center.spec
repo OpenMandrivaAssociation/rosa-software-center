@@ -2,8 +2,8 @@
 # If you update one more time per same day then increment the LAST number of Release: tag
 # Do not change FIRST number of Release: tag, it is fixed to make package be newer
 # Constants ###################################################################
-%define git_revision dacbbcdf42
-%define git_commit_date 20130903
+%define git_revision 7dfb864
+%define git_commit_date 20130913
 
 # Required version of Qt5
 %define qt_version 5.1.1
@@ -16,7 +16,7 @@ Release: 21.%{git_commit_date}.1
 License: GPLv3+
 Group: System/Configuration/Packaging
 URL: http://www.rosalab.ru
-Summary: Software Center 
+Summary: Software Center
 
 # Sources #####################################################################
 Source0: %{name}-%{version}-%{git_commit_date}-%{git_revision}.tar.gz
@@ -62,7 +62,7 @@ make DESTDIR=../install install
 cd %{_builddir}/%{name}-%{version}
 
 # Build SC
-%cmake_qt5 -DCMAKE_BUILD_TYPE=Release \
+%cmake_qt5 -DCMAKE_BUILD_TYPE=Debug \
     -DBUILD_TESTING=OFF \
     -DAPP_GIT_VERSION="%{git_revision}" \
     -DCMAKE_INSTALL_DATADIR="%{_datadir}/%{name}" \
