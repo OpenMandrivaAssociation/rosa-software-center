@@ -68,7 +68,7 @@ cd %{_builddir}/%{name}-%{version}
     -DBUILD_TESTING=OFF \
     -DAPP_GIT_VERSION="%{git_revision}" \
     -DCMAKE_INSTALL_DATADIR="%{_datadir}/%{name}" \
-    -DCMAKE_INSTALL_LIBDIR="%{_libdir}/%{name}" \
+    -DCMAKE_INSTALL_LIBDIR="%{_libdir}" \
     -DCMAKE_INSTALL_SYSCONFDIR="%{_sysconfdir}" \
     -DCMAKE_PREFIX_PATH=%{_builddir}/%{name}-%{version}/yaml-cpp-0.5.1/install/%{_prefix}
 
@@ -93,10 +93,10 @@ cp %{buildroot}%{_datadir}/%{name}/desktop_integration/%{name}-notifier.desktop 
 %{_datadir}/%{name}/images/*
 %{_datadir}/%{name}/translations/rsc_*.qm
 %{_datadir}/%{name}/ui/*
-%{_libdir}/%{name}/libsoftwarecenterrpm.so
-%{_libdir}/%{name}/libsoftwarecenterurpm.so
+%{_libdir}/libsoftwarecenterrpm.so
+%{_libdir}/libsoftwarecenterurpm.so
+%{_libdir}/libsoftwarecenter.so
 %{_datadir}/%{name}/urpm/*
-%{_libdir}/%{name}/libsoftwarecenter.so
 %{_bindir}/%{name}-pkhelper
 %config %{_sysconfdir}/dbus-1/system.d/com.rosalinux.softwarecenter.pk.conf
 %{_datadir}/dbus-1/system-services/com.rosalinux.softwarecenter.pk.service
