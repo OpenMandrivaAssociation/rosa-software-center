@@ -2,8 +2,8 @@
 # If you update one more time per same day then increment the LAST number of Release: tag
 # Do not change FIRST number of Release: tag, it is fixed to make package be newer
 # Constants ###################################################################
-%define git_revision 808cd837c8
-%define git_commit_date 20130926
+%define git_revision 63e3859
+%define git_commit_date 20131207
 
 # Required version of Qt5
 %define qt_version 5.1.1
@@ -32,6 +32,8 @@ BuildRequires: boost-devel
 BuildRequires: polkit-qt5-1-devel
 BuildRequires: rpm-devel
 BuildRequires: curl-devel
+BuildRequires: xapian-devel
+BuildRequires: qt4-devel
 
 Requires: %{_lib}qt5gui5-x11
 
@@ -103,7 +105,8 @@ cp %{buildroot}%{_datadir}/%{name}/desktop_integration/%{name}-notifier.desktop 
 %config %{_sysconfdir}/dbus-1/system.d/com.rosalinux.softwarecenter.rpm.conf
 %{_datadir}/dbus-1/system-services/com.rosalinux.softwarecenter.rpm.service
 %{_bindir}/%{name}-notifier
+%{_bindir}/%{name}-notifier-trayicon
 %{_datadir}/%{name}/notifier/*
-%{_datadir}/%{name}/translations/notifier_*.qm
 %{_datadir}/%{name}/desktop_integration/*
+%{_datadir}/%{name}/notifier_trayicon/*
 %{_sysconfdir}/skel/.config/autostart/%{name}-notifier.desktop
