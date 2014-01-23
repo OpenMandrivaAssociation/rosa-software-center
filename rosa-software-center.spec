@@ -2,11 +2,11 @@
 # If you update one more time per same day then increment the LAST number of Release: tag
 # Do not change FIRST number of Release: tag, it is fixed to make package be newer
 # Constants ###################################################################
-%define git_revision 808cd837c8
-%define git_commit_date 20130926
+%define git_revision 7d7524b
+%define git_commit_date 20140123
 
 # Required version of Qt5
-%define qt_version 5.1.1
+%define qt_version 5.2.0
 
 
 # Main Package ################################################################
@@ -85,25 +85,44 @@ cp %{buildroot}%{_datadir}/%{name}/desktop_integration/%{name}-notifier.desktop 
 
 # Files ######################################################################
 %files
+
+# main application
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/*
 %{_datadir}/%{name}/images/*
 %{_datadir}/%{name}/translations/rsc_*.qm
 %{_datadir}/%{name}/ui/*
+
+# rpm support lib
 %{_libdir}/%{name}/libsoftwarecenterrpm.so
+
+# urpm support lib
 %{_libdir}/%{name}/libsoftwarecenterurpm.so
 %{_datadir}/%{name}/urpm/*
+
+# core lib
 %{_libdir}/%{name}/libsoftwarecenter.so
+
+# pkhelper
 %{_bindir}/%{name}-pkhelper
 %config %{_sysconfdir}/dbus-1/system.d/com.rosalinux.softwarecenter.pk.conf
 %{_datadir}/dbus-1/system-services/com.rosalinux.softwarecenter.pk.service
 %{_datadir}/polkit-1/actions/com.rosalinux.softwarecenter.pk.policy
+
+# rpmhelper
 %{_bindir}/%{name}-rpmhelper
 %config %{_sysconfdir}/dbus-1/system.d/com.rosalinux.softwarecenter.rpm.conf
 %{_datadir}/dbus-1/system-services/com.rosalinux.softwarecenter.rpm.service
+
+# notifier
 %{_bindir}/%{name}-notifier
 %{_datadir}/%{name}/notifier/*
-%{_datadir}/%{name}/translations/notifier_*.qm
+
+# notifier-trayicon
+%{_bindir}/%{name}-notifier-trayicon
+%{_datadir}/%{name}/notifier_trayicon/tray_icon.png
+
+# desctop integration: icon, etc
 %{_datadir}/%{name}/desktop_integration/*
 %{_sysconfdir}/skel/.config/autostart/%{name}-notifier.desktop
