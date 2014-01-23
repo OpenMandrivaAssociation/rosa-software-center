@@ -32,6 +32,8 @@ BuildRequires: boost-devel
 BuildRequires: polkit-qt5-1-devel
 BuildRequires: rpm-devel
 BuildRequires: curl-devel
+BuildRequires: xapian-devel
+BuildRequires: qt4-devel
 
 Requires: %{_lib}qt5gui5-x11
 
@@ -66,7 +68,7 @@ cd %{_builddir}/%{name}-%{version}
     -DBUILD_TESTING=OFF \
     -DAPP_GIT_VERSION="%{git_revision}" \
     -DCMAKE_INSTALL_DATADIR="%{_datadir}/%{name}" \
-    -DCMAKE_INSTALL_LIBDIR="%{_libdir}/%{name}" \
+    -DCMAKE_INSTALL_LIBDIR="%{_libdir}" \
     -DCMAKE_INSTALL_SYSCONFDIR="%{_sysconfdir}" \
     -DCMAKE_PREFIX_PATH=%{_builddir}/%{name}-%{version}/yaml-cpp-0.5.1/install/%{_prefix}
 
@@ -95,14 +97,14 @@ cp %{buildroot}%{_datadir}/%{name}/desktop_integration/%{name}-notifier.desktop 
 %{_datadir}/%{name}/ui/*
 
 # rpm support lib
-%{_libdir}/%{name}/libsoftwarecenterrpm.so
+%{_libdir}/libsoftwarecenterrpm.so
 
 # urpm support lib
-%{_libdir}/%{name}/libsoftwarecenterurpm.so
+%{_libdir}/libsoftwarecenterurpm.so
 %{_datadir}/%{name}/urpm/*
 
 # core lib
-%{_libdir}/%{name}/libsoftwarecenter.so
+%{_libdir}/libsoftwarecenter.so
 
 # pkhelper
 %{_bindir}/%{name}-pkhelper
@@ -121,7 +123,7 @@ cp %{buildroot}%{_datadir}/%{name}/desktop_integration/%{name}-notifier.desktop 
 
 # notifier-trayicon
 %{_bindir}/%{name}-notifier-trayicon
-%{_datadir}/%{name}/notifier_trayicon/tray_icon.png
+%{_datadir}/%{name}/notifier_trayicon/*
 
 # desctop integration: icon, etc
 %{_datadir}/%{name}/desktop_integration/*
