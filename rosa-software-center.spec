@@ -25,7 +25,7 @@ Source1: yaml-cpp-0.5.1.tar.gz
 # Requires ####################################################################
 BuildRequires: cmake
 BuildRequires: qmake5 >= %{qt_version}
-BuildRequires: qt5-devel >= %{qt_version}
+BuildRequires: pkgconfig(Qt5Core) >= %{qt_version}
 BuildRequires: intltool
 BuildRequires: qt5-linguist-tools >= %{qt_version}
 BuildRequires: boost-devel
@@ -33,7 +33,7 @@ BuildRequires: polkit-qt5-1-devel
 BuildRequires: rpm-devel
 BuildRequires: curl-devel
 BuildRequires: xapian-devel
-BuildRequires: qt4-devel
+BuildRequires: pkgconfig(QtCore)
 
 Requires: %{_lib}qt5gui5-x11
 
