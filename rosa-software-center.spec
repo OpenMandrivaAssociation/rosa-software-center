@@ -26,6 +26,9 @@ Source1: yaml-cpp-0.5.1.tar.gz
 BuildRequires: cmake
 BuildRequires: qmake5 >= %{qt_version}
 BuildRequires: pkgconfig(Qt5Core) >= %{qt_version}
+BuildRequires: pkgconfig(Qt5Quick) >= %{qt_version}
+BuildRequires: pkgconfig(Qt5DBus) >= %{qt_version}
+BuildRequires: pkgconfig(Qt5Gui) >= %{qt_version}
 BuildRequires: intltool
 BuildRequires: qt5-linguist-tools >= %{qt_version}
 BuildRequires: boost-devel
