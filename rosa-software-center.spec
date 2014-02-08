@@ -2,8 +2,8 @@
 # If you update one more time per same day then increment the LAST number of Release: tag
 # Do not change FIRST number of Release: tag, it is fixed to make package be newer
 # Constants ###################################################################
-%define git_revision db92156
-%define git_commit_date 20140207
+%define git_revision 284c3e7
+%define git_commit_date 20140208
 
 # Required version of Qt5
 %define qt_version 5.2.0
