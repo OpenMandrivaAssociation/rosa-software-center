@@ -2,8 +2,8 @@
 # If you update one more time per same day then increment the LAST number of Release: tag
 # Do not change FIRST number of Release: tag, it is fixed to make package be newer
 # Constants ###################################################################
-%define git_revision 284c3e7
-%define git_commit_date 20140208
+%define git_revision 1c4835a
+%define git_commit_date 20140225
 
 # Required version of Qt5
 %define qt_version 5.2.0
@@ -12,7 +12,7 @@
 # Main Package ################################################################
 Name: rosa-software-center
 Version: 0.0.0
-Release: 21.%{git_commit_date}.1
+Release: 21.%{git_commit_date}.0
 License: GPLv3+
 Group: System/Configuration/Packaging
 URL: http://www.rosalab.ru
