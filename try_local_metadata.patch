@@ -1,0 +1,18 @@
+diff --git a/lib/src/utils.cpp b/lib/src/utils.cpp
+index e6ba599..ca74db2 100644
+--- a/lib/src/utils.cpp
++++ b/lib/src/utils.cpp
+@@ -154,6 +154,13 @@ auto LoadCacheableFile(const QString &filename,
+         // Step 3.1. Try to load remote md5sum
+         Md5Sum remoteSum;
+         try {
++            // Try local file
++            QFile fin(QDir::homePath() + "/" + filename);
++            if (fin.open(QFile::ReadOnly)) {
++                QByteArray data = fin.readAll();
++                Md5Sum sum = Md5Sum::hash(data);
++                return std::make_pair(std::move(data), sum);
++            }
+             const QByteArray data = utils::downloadFromUrl(
+                         QUrl(mirror.url.toString() + "/media/media_info/"
+                              + filename + ".md5sum"), downloadTimeout, callback);

@@ -2,8 +2,8 @@
 # If you update one more time per same day then increment the LAST number of Release: tag
 # Do not change FIRST number of Release: tag, it is fixed to make package be newer
 # Constants ###################################################################
-%define git_revision 1c4835a
-%define git_commit_date 20140225
+%define git_revision 0785368
+%define git_commit_date 20140226
 
 # Required version of Qt5
 %define qt_version 5.2.0
@@ -24,6 +24,9 @@ Source1: yaml-cpp-0.5.1.tar.gz
 
 # Patches #####################################################################
 Patch0: rsc_disable_check_main_repo.patch
+
+# to test metadata generation without ABF
+Patch1: try_local_metadata.patch
 
 # Requires ####################################################################
 BuildRequires: cmake
@@ -55,6 +58,7 @@ Software Center main application
 %prep
 %setup -c -a 1
 %patch0 -p1
+%patch1 -p1
 
 
 # Build #######################################################################
