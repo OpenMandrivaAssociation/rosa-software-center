@@ -1,25 +1,19 @@
-# Please update git_revision and git_commit_date macros if you want to update sources
-# If you update one more time per same day then increment the LAST number of Release: tag
-# Do not change FIRST number of Release: tag, it is fixed to make package be newer
 # Constants ###################################################################
-%define git_revision 0785368
-%define git_commit_date 20140226
-
 # Required version of Qt5
-%define qt_version 5.2.0
+%define qt_version 5.2.1
 
 
 # Main Package ################################################################
 Name: rosa-software-center
-Version: 0.0.0
-Release: 21.%{git_commit_date}.0
+Version: 0.1.0
+Release: 1
 License: GPLv3+
 Group: System/Configuration/Packaging
 URL: http://www.rosalab.ru
 Summary: Software Center
 
 # Sources #####################################################################
-Source0: %{name}-%{version}-%{git_commit_date}-%{git_revision}.tar.gz
+Source0: %{name}-%{version}.tar.gz
 Source1: yaml-cpp-0.5.1.tar.gz
 
 # Patches #####################################################################
@@ -35,6 +29,7 @@ BuildRequires: pkgconfig(Qt5Core) >= %{qt_version}
 BuildRequires: pkgconfig(Qt5Quick) >= %{qt_version}
 BuildRequires: pkgconfig(Qt5DBus) >= %{qt_version}
 BuildRequires: pkgconfig(Qt5Gui) >= %{qt_version}
+BuildRequires: pkgconfig(Qt5Svg) >= %{qt_version}
 BuildRequires: intltool
 BuildRequires: qt5-linguist-tools >= %{qt_version}
 BuildRequires: boost-devel
@@ -51,7 +46,7 @@ Obsoletes: %{name}-notifier
 Obsoletes: %{name}-core
 
 %description
-Software Center main application
+Software Center main application.
 
 
 # Preparation #################################################################
@@ -75,15 +70,19 @@ make DESTDIR=../install install
 cd %{_builddir}/%{name}-%{version}
 
 # Build SC
-%cmake_qt5 -DCMAKE_BUILD_TYPE=Debug \
+mkdir -p build 
+cd build
+export CXXFLAGS="-O2 -Wa,--compress-debug-sections -ggdb3 -fvar-tracking-assignments -frecord-gcc-switches -Wstrict-aliasing=2 -pipe -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector --param=ssp-buffer-size=4 -fPIC"
+cmake .. -DCMAKE_BUILD_TYPE=Debug \
+    -DCMAKE_INSTALL_PREFIX="/usr" \
     -DBUILD_TESTING=OFF \
-    -DAPP_GIT_VERSION="%{git_revision}" \
+    -DAPP_GIT_VERSION="%{version}-%{release}" \
     -DCMAKE_INSTALL_DATADIR="%{_datadir}/%{name}" \
     -DCMAKE_INSTALL_LIBDIR="%{_libdir}" \
     -DCMAKE_INSTALL_SYSCONFDIR="%{_sysconfdir}" \
     -DCMAKE_PREFIX_PATH=%{_builddir}/%{name}-%{version}/yaml-cpp-0.5.1/install/%{_prefix}
 
-%make
+%make VERBOSE=1
 
 
 # Install ####################################################################
