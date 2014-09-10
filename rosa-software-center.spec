@@ -58,6 +58,7 @@ Software Center main application.
 
 # Build #######################################################################
 %build
+%global optflags %{optflags} -Qunused-arguments
 
 # Build and install yaml-cpp
 cd yaml-cpp-0.5.1
