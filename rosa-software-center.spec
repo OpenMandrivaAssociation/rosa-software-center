@@ -58,8 +58,7 @@ Software Center main application.
 
 # Build #######################################################################
 %build
-export CFLAGS="-Qunused-arguments"
-export CXXFLAGS="-Qunused-arguments"
+%global optflags %{optflags} -Qunused-arguments
 
 # Build and install yaml-cpp
 cd yaml-cpp-0.5.1
@@ -74,7 +73,7 @@ cd %{_builddir}/%{name}-%{version}
 # Build SC
 mkdir -p build 
 cd build
-export CXXFLAGS="-O2 -Wa,--compress-debug-sections -ggdb3 -fvar-tracking-assignments -frecord-gcc-switches -Wstrict-aliasing=2 -pipe -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector --param=ssp-buffer-size=4 -fPIC"
+export CXXFLAGS="-O2 -Wa,--compress-debug-sections -ggdb3 -Wstrict-aliasing=2 -pipe -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector --param=ssp-buffer-size=4 -fPIC"
 cmake .. -DCMAKE_BUILD_TYPE=Debug \
     -DCMAKE_INSTALL_PREFIX="/usr" \
     -DBUILD_TESTING=OFF \
