@@ -23,6 +23,7 @@ Patch0: rsc_disable_check_main_repo.patch
 Patch1: try_local_metadata.patch
 
 Patch2:	rosa-software-center-clang.patch
+Patch3:	rosa-software-center-link.patch
 
 # Requires ####################################################################
 BuildRequires: cmake
@@ -57,6 +58,7 @@ Software Center main application.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p0
+%patch3 -p0
 
 # upstream polkit qt5 no longer uses POLKITQT5 var prefix
 sed -i 's/POLKITQT5/POLKITQT/' */CMakeLists.txt
