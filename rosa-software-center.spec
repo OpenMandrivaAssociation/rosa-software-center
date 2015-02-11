@@ -58,6 +58,8 @@ Software Center main application.
 %patch1 -p1
 %patch2 -p0
 
+# upstream polkit qt5 no longer uses POLKITQT5 var prefix
+sed -i 's/POLKITQT5/POLKITQT/' */CMakeLists.txt
 
 # Build #######################################################################
 %build
