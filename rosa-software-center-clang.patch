@@ -12,7 +12,7 @@
           * be retrieved and group of each returned package will be empty.
           */
          bool group = true;
-+	Field() {}
++	Fields() {}
      };
  
      /**
