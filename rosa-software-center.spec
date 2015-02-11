@@ -22,6 +22,8 @@ Patch0: rsc_disable_check_main_repo.patch
 # to test metadata generation without ABF
 Patch1: try_local_metadata.patch
 
+Patch2:	rosa-software-center-clang.patch
+
 # Requires ####################################################################
 BuildRequires: cmake
 BuildRequires: qmake5 >= %{qt_version}
@@ -54,6 +56,7 @@ Software Center main application.
 %setup -c -a 1
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 
 
 # Build #######################################################################

@@ -1,0 +1,18 @@
+--- urpm/src/connection.h.orig
++++ urpm/src/connection.h
+@@ -61,6 +61,7 @@
+     {
+         bool noDevel = false;
+         bool noDebuginfo = false;
++	Filter() {}
+     };
+ 
+     /**
+@@ -83,6 +84,7 @@
+          * be retrieved and group of each returned package will be empty.
+          */
+         bool group = true;
++	Field() {}
+     };
+ 
+     /**
