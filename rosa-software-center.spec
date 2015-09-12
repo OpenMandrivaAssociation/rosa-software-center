@@ -6,7 +6,7 @@
 # Main Package ################################################################
 Name: rosa-software-center
 Version: 0.1.0
-Release: 3
+Release: 4
 License: GPLv3+
 Group: System/Configuration/Packaging
 URL: http://www.rosalab.ru
